@@ -35,6 +35,8 @@ class TiM {
   void setPixel(uint16_t strip_i, uint16_t led_j, uint8_t r, uint8_t g, uint8_t b); /*  */
   void setPixel(uint16_t strip_i, uint16_t led_j, uint32_t c);
   void setrow(uint8_t row, uint32_t c);
+  void setRow(uint8_t row, uint8_t * pixels);
+  void copyRow(uint8_t,uint8_t);
   void setall(uint32_t c);
 
   uint16_t numStrip(void);
@@ -43,6 +45,7 @@ class TiM {
   uint16_t led_per_strip;
   Adafruit_NeoPixel strips[8];
   uint16_t n_strip;
+  void shift(uint8_t,uint8_t);
 private:
 
   uint8_t *pins;           // Output pins
