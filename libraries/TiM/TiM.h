@@ -29,15 +29,16 @@ class TiM {
   // Setup number of LEDs, pin number, LED type
   void setup(uint16_t n_strip, uint16_t led_per_strip, uint8_t *pins);
   void setup(uint16_t n_strip, uint16_t led_per_strip, uint8_t *pins,
-	     uint8_t *_pixels);
+       uint8_t *_pixels);
 
   void show(void);
   void setPixel(uint16_t strip_i, uint16_t led_j, uint8_t r, uint8_t g, uint8_t b); /*  */
   void setPixel(uint16_t strip_i, uint16_t led_j, uint32_t c);
-  void setrow(uint8_t row, uint32_t c);
   void setRow(uint8_t row, uint8_t * pixels);
-  void copyRow(uint8_t,uint8_t);
+  void setrow(uint8_t row, uint32_t c);
   void setall(uint32_t c);
+  void copyRow(uint8_t to,uint8_t from);  
+  void clearRow(uint8_t row);
 
   uint16_t numStrip(void);
   uint32_t getPixel(uint16_t strip_i, uint16_t led_j);

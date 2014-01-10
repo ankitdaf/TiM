@@ -503,5 +503,11 @@ uint8_t * Adafruit_NeoPixel::getRow() {
 }
 
 void Adafruit_NeoPixel::setRow(uint8_t * _pixels) {
-  memcpy(pixels,_pixels,numBytes);    
+  memcpy(pixels,_pixels,numBytes);
+  changed = true;  
+}
+
+void Adafruit_NeoPixel::clearRow() {
+  memset(pixels,0,numBytes);
+  changed = true;
 }

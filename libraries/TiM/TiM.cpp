@@ -17,13 +17,13 @@ void TiM::setup(uint16_t _n_strip, uint16_t _led_per_strip, uint8_t *pins) {
 }
 
 void TiM::setup(uint16_t _n_strip, uint16_t _led_per_strip, uint8_t *pins,
-		uint8_t *_pixels){
+    uint8_t *_pixels){
   uint16_t i, j;
   n_strip = _n_strip;
   led_per_strip = _led_per_strip;
   for(i = 0; i < n_strip; i++){
     strips[i].setup(led_per_strip, pins[i], NEO_GRB + NEO_KHZ800,
-		    _pixels);
+        _pixels);
   }
   setall(Color(0, 0, 0));
   show();
@@ -109,3 +109,8 @@ uint32_t Wheel(byte WheelPos, uint8_t imax) {
 void TiM::copyRow(uint8_t to,uint8_t from) {
   strips[to].setRow(strips[from].getRow());  // Assumes rows of equal size
 }
+
+void TiM::clearRow(uint8_t row) {
+  strips[row].clearRow();
+}
+
